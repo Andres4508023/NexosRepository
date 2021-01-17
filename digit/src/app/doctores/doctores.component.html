@@ -1,0 +1,42 @@
+
+
+<br/>
+
+<div class="center">
+    <p>INFORMACION DOCTORES.</p> 
+</div> 
+<br/>
+
+<div class="contenedor"> 
+    <div class="center">     
+        <mat-form-field appearance="outline">
+            <mat-label>Seleccione Doctor</mat-label>
+            <mat-select placeholder="Seleccione" [(ngModel)]="txtIdDoctor" >
+              <mat-option *ngFor="let item of service.listDoctor" value="{{item.IdDoctor}}"  (click)="GetDoctorPaciente()">{{item.Nombres}}</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>contacts</mat-icon>
+          </mat-form-field>
+    </div>
+</div>
+
+<br/> <br/>
+           
+                  <table id="tblPacientes">
+                    <tr>
+                      <td>Nombres</td>
+                      <td>NumeroSeguro</td>
+                      <td>CodigoPostal</td>
+                      <td>Telefono</td>
+                      <td>Eliminar</td>
+                    </tr>
+                
+                    <tr *ngFor="let pd of service.listPacientes">                    
+                        <td >{{pd.Nombres}}</td>
+                        <td >{{pd.NumeroSeguro}}</td>
+                        <td >{{pd.CodigoPostal}}</td>
+                        <td >{{pd.Telefono}}</td>
+                        <a mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (click)="onDelete(pd.IdPaciente)">
+                            <mat-icon>delete</mat-icon> 
+                         </a>  
+                    </tr>
+                  </table>

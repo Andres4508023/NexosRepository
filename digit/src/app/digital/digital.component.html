@@ -1,0 +1,117 @@
+
+<br/>
+   <div class="center">
+   <p>Factura Digital</p> 
+ </div> <br/>
+
+<table id="tblPersonas">
+    <tr>
+        
+        <td>Consecutivo</td>
+        <td>Identificacion</td>
+        <td>Nombres</td>
+        <td>Apellidos</td>
+        <td>Fecha Compra</td>
+        <td>Telefono</td>
+        <td>FormaPago</td>
+        <td>Eliminar</td>
+    </tr>
+
+  
+
+    <tr *ngFor="let cl of service.listData">
+        
+        <td (click)="clientForm(cl)">{{cl.Consecutivo}}</td>
+        <td (click)="clientForm(cl)">{{cl.NumeroIdentificacion}}</td>
+        <td (click)="clientForm(cl)">{{cl.Nombres}}</td>
+        <td (click)="clientForm(cl)">{{cl.Apellidos}}</td>
+        <td (click)="clientForm(cl)">{{cl.FechaNacimiento}}</td>
+        <td (click)="clientForm(cl)">{{cl.Telefono}}</td>
+        <td (click)="clientForm(cl)">{{cl.FormaPago}}</td>
+        <a mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (click)="onDelete(cl.IdPersona)">
+         <mat-icon>delete</mat-icon> 
+      </a>  
+    </tr>
+</table>
+<br/>
+
+<form #form="ngForm" autocomplete="off" *ngIf="service.formData" (submit)="onSubmit(form)">
+    <div class="contenedor"> 
+        <div class="center">     
+           <li class="mat-form-field--inline">
+             <mat-form-field appearance="outline">
+                 <mat-label>CONSECUTIVO</mat-label>
+                   <input matInput placeholder="Ej: Andres" type="text" name="consecutivo" #consecutivo="ngModel" value=(service.formData.consecutivo) [(ngModel)]="service.formData.Consecutivo">
+                     <mat-icon matSuffix>account_circle</mat-icon>                          
+             </mat-form-field>
+    
+             <mat-form-field appearance="outline">
+                <mat-label>N IDENTIFICACION</mat-label>
+                  <input matInput placeholder="Ej: 1030" type="text" name="APELLIDO" #NumeroIdentificacion="ngModel" [(ngModel)]="service.formData.NumeroIdentificacion">
+                    <mat-icon matSuffix>account_circle</mat-icon>                          
+            </mat-form-field>
+            </li>   
+         </div>
+
+         <div class="center">   
+            <li class="mat-form-field--inline">
+              <mat-form-field appearance="outline">
+                  <mat-label>NOMBRES</mat-label>
+                    <input matInput placeholder="Ej: Andres" type="text" name="Nombres" #Nombres="ngModel" [(ngModel)]="service.formData.Nombres">
+                      <mat-icon matSuffix>account_circle</mat-icon>                          
+              </mat-form-field>
+     
+              <mat-form-field appearance="outline">
+                 <mat-label>APELLIDOS</mat-label>
+                   <input matInput placeholder="Ej: Fierro" type="text" name="Apellidos" #Apellidos="ngModel" [(ngModel)]="service.formData.Apellidos">
+                     <mat-icon matSuffix>account_circle</mat-icon>                          
+             </mat-form-field>
+             </li>   
+          </div>
+ 
+          <div class="center">   
+            <li class="mat-form-field--inline">
+              <mat-form-field appearance="outline">
+                  <mat-label>FACHA COMPRA</mat-label>
+                    <input matInput placeholder="Ej: 2000/04/13" type="text" name="FechaNacimiento" #FechaNacimiento="ngModel" [(ngModel)]="service.formData.FechaNacimiento">
+                      <mat-icon matSuffix>account_circle</mat-icon>                          
+              </mat-form-field>
+     
+              <mat-form-field appearance="outline">
+                 <mat-label>TELEFONO</mat-label>
+                   <input matInput placeholder="Ej: 4508023" type="text" name="Telefono" #Telefono="ngModel" [(ngModel)]="service.formData.Telefono">
+                     <mat-icon matSuffix>account_circle</mat-icon>                          
+             </mat-form-field>
+             </li>   
+          </div>
+
+          <div class="center">
+            <mat-form-field appearance="outline">
+                <mat-label>Metodo de pago</mat-label>
+                  <!--   <mat-select placeholder="seleccione" [(ngModel)]="service.formData.FormaPago">
+                      <mat-option value="Cash">Tarjeta</mat-option>
+                      <mat-option value="Card">Efectivo</mat-option>
+                    </mat-select> -->
+                    <input matInput placeholder="Ej: Tejeta" type="text" name="FormaPago" #FormaPago="ngModel" [(ngModel)]="service.formData.FormaPago">
+                    <mat-icon matSuffix>account_circle</mat-icon>                          
+         
+              </mat-form-field>
+          </div>
+
+          <div class="center">
+            <li class="mat-form-field--inline">
+                <div class="center">
+                   <button mat-flat-button (click)="AddProduct(consecutivo.value)">Agregar
+                        <mat-icon>add</mat-icon>
+                    </button> 
+                
+                <button mat-flat-button type="submit">Save
+                    <mat-icon>save</mat-icon>
+                </button>
+              </div>
+            </li>
+        </div>
+         
+    </div>
+</form>
+

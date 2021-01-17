@@ -1,0 +1,37 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #1b3e6e}
+  
+  th {
+    background-color: #1b3e6e;
+    color: white;
+  } 
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .mat-form-field--inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .mat-form-field--inline .mat-form-field {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+  }
+  
+  .mat-form-field--inline .mat-form-field:nth-child(1) {
+    margin-right: 10px;
+  }

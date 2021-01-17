@@ -1,0 +1,86 @@
+
+
+<form class="example-form" #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+
+    <br/>
+        <div class="center">
+            <p>INFORMACION PACIENTES.</p> 
+       </div> 
+      <br/>
+      <div class="contenedor"> 
+        <div class="center">     
+          <li class="mat-form-field--inline">
+             <mat-form-field appearance="outline">
+                <mat-label>Nombres Paciente</mat-label>
+                   <input matInput type="text" name="Nombre"  [(ngModel)]="service.formDataPacientes.Nombres">
+                       <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                 <mat-label>Numero de Seguro</mat-label>
+                    <input matInput type="number" name="Seguro"  [(ngModel)]="service.formDataPacientes.NumeroSeguro">
+                      <mat-icon matSuffix>person</mat-icon>
+               </mat-form-field>   
+            </li>   
+        </div>
+
+        <div class="center">     
+          <li class="mat-form-field--inline">
+            <mat-form-field appearance="outline">
+              <mat-label>Codigo Postal</mat-label>
+                <input matInput type="text" name="Codigo"  [(ngModel)]="service.formDataPacientes.CodigoPostal">
+                   <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+           <mat-form-field appearance="outline">
+            <mat-label>Telefono</mat-label>
+              <input matInput type="number" name="Telefono" [(ngModel)]="service.formDataPacientes.Telefono">
+                 <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>        
+            </li>   
+        </div>
+
+        <div class="center">     
+          <li class="mat-form-field--inline">
+              <mat-form-field appearance="outline">
+                <mat-label>Seleccione Doctor</mat-label>
+                <mat-select placeholder="Seleccione" [(ngModel)]="txtIdDoctor" >
+                  <mat-option *ngFor="let item of service.listDoctor" value="{{item.IdDoctor}}">{{item.Nombres}}</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>contacts</mat-icon>
+              </mat-form-field>
+          </li>   
+        </div>
+
+  <br/>               
+                  <table id="tblPacientes">
+                    <tr>
+                      <td>Nombres</td>
+                      <td>NumeroSeguro</td>
+                      <td>CodigoPostal</td>
+                      <td>Telefono</td>
+                      <td>Eliminar</td>
+                    </tr>
+                
+                    <tr *ngFor="let pd of service.listPacientes">                    
+                        <td (click)="populateForm(pd)">{{pd.Nombres}}</td>
+                        <td (click)="populateForm(pd)">{{pd.NumeroSeguro}}</td>
+                        <td (click)="populateForm(pd)">{{pd.CodigoPostal}}</td>
+                        <td (click)="populateForm(pd)">{{pd.Telefono}}</td>
+                        <a mat-mini-fab color="primary" aria-label="Example icon button with a home icon" (click)="onDelete(pd.IdPaciente)">
+                            <mat-icon>delete</mat-icon> 
+                         </a>  
+                    </tr>
+                  </table>
+             
+           <br/>       
+
+                  <div class="center"> 
+                      <button mat-flat-button color="primary" type="submit">
+                        GUARDAR - ACTUALIZAR
+                        <mat-icon>save</mat-icon>
+                      </button>
+                  </div>
+     </div>
+
+</form>

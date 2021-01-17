@@ -1,0 +1,49 @@
+
+<form  #form="ngForm" autocomplete="off" (submit)="OnSubmit(form)">
+
+  
+    <div class="center">
+      <li class="mat-form-field--inline">
+          <mat-form-field appearance="outline">
+              <mat-label>CONSECUTIVO</mat-label>
+              <input matInput type="text" name="Consecutivo" #Consecutivo="ngModel" [(ngModel)]="service.formDataProd.Consecutivo">
+          </mat-form-field>
+       </li>
+  </div>   
+  
+  <div class="center">
+      <li class="mat-form-field--inline">
+          <mat-form-field appearance="outline">
+                  <mat-label>NOMBRE PRODUCTO</mat-label>
+                      <input matInput type="text" name="Nombre" #Nombre [(ngModel)]="service.formDataProd.Nombre">
+              </mat-form-field>
+  
+              <mat-form-field appearance="outline">
+                <mat-label>PRECIO</mat-label>
+                  <input matInput type="text" name="Precio" #Precio="ngModel" [(ngModel)]="service.formDataProd.Precio">
+            </mat-form-field>
+         
+      </li>
+  </div>
+  
+  <div class="center">
+      <li class="mat-form-field--inline">
+          <mat-form-field appearance="outline">
+              <mat-label>CANTIDAD</mat-label>
+                  <input matInput type="text" name="Cantidad" #Cantidad="ngModel" [(ngModel)]="service.formDataProd.Cantidad">
+          </mat-form-field>
+      </li>
+  </div>
+  
+  
+  <div class="center">
+    <button mat-fab  aria-label="Example icon button with a heart icon" [mat-dialog-close]>
+      <mat-icon>clear</mat-icon>
+    </button>  
+  
+    <button mat-fab  type="submit" aria-label="Example icon button with a heart icon" >
+      <mat-icon>cloud</mat-icon>
+    </button>  
+  </div>
+  
+  </form>
